@@ -33,12 +33,12 @@ classdef action
                 action_list = obj.R2_action_list;
             else 
                 if ismember(begin_point_tmp,obj.R1_action_list)
-                    R1_action = action('R1',obj.begin_point,'Buffer')
-                    R2_action = action('R2','Buffer',obj.finish_point);
+                    R1_action = action('R1',obj.begin_point,'Buffer',obj.begin_time);
+                    R2_action = action('R2','Buffer',obj.finish_point,obj.begin_time+R1_action.action_time);
                     time = R1_action.action_time+R2_action.action_time;
                 else
-                    R2_action = action('R2',obj.begin_point,'Buffer');
-                    R1_action = action('R1','Buffer',obj.finish_point);
+                    R2_action = action('R2',obj.begin_point,'Buffer',obj.begin_time);
+                    R1_action = action('R1','Buffer',obj.finish_point,obj.begin_time+R2_action.action_time);
                     time = R1_action.action_time+R2_action.action_time;
                 end
                 return;
