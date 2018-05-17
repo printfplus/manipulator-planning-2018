@@ -16,9 +16,9 @@
 1. 计算动作时间 calculate_time()
 2. 展示类的属性(即上述四种属性) display_member()
 
-####动作类具体使用方法示例
+##### 动作类具体使用方法示例
 
-'''matlab
+```matlab
 action1 = action('12','Pre','P5'); %混合动作，从Pre腔室转换到'P5'腔室
 action1.display_member(); %展示类的属性
-'''
+```
