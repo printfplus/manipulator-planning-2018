@@ -9,10 +9,12 @@ classdef action
         R2_action_list;
         begin_time;
         finish_time;
+        next_time; %送到后的下一步加工工序所用时间
     end
 
     methods
-        function obj = action(action_agent,begin_point,finish_point,begin_time)
+        
+        function obj = action(action_agent,begin_point,finish_point,begin_time,next_time)
             obj.begin_point = begin_point;
             obj.finish_point = finish_point;
             obj.action_agent = action_agent;
@@ -21,7 +23,8 @@ classdef action
             obj.action_time = 0;
             obj.action_time = obj.calculate_time();
             obj.begin_time = begin_time;
-            obj.finish_time = begin_time+obj.action_time;         
+            obj.finish_time = begin_time+obj.action_time;     
+            obj.next_time = next_time;    
         end
 
         function time = calculate_time(obj)
